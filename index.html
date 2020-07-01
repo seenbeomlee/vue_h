@@ -8,38 +8,22 @@
   </head>
   <body>
     <div id="app">
-      {{ nextYear('Hi') }}
-      <input :type="type" v-bind:value="inputData" />
-      <a :href="getKossieCoderLink('kossiecoder')">seenblee channel</a>
+      {{ year }} <br />
+      <button v-on:click="plus">Add</button>
+      <button v-on:click="minus">Sub</button>
     </div>
     <script>
       new Vue({
         el: "#app",
         data: {
-          person: {
-            name: "seenblee",
-            age: 22,
-          },
-          inputData: "v-binding data",
-          type: "number" /* it only permit number */,
-          link: "https://www.youtube.com/",
+          year: 2018,
         },
         methods: {
-          getKossieCoderLink(channel) {
-            return this.link + channel;
+          plus() {
+            this.year++;
           },
-          nextYear(greeting) {
-            return (
-              greeting +
-              "! " +
-              this.person.name +
-              " 는 내년에 " +
-              (this.person.age + 1) +
-              "살 입니다"
-            );
-          },
-          otherMethod() {
-            this.nextYear();
+          minus() {
+            this.year--;
           },
         },
       });
