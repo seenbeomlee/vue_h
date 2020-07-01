@@ -9,8 +9,6 @@
   <body>
     <div id="app">
       {{ nextYear('Hi') }}
-      <input :type="type" v-bind:value="inputData" />
-      <a :href="getKossieCoderLink('kossiecoder')">seenblee channel</a>
     </div>
     <script>
       new Vue({
@@ -20,14 +18,8 @@
             name: "seenblee",
             age: 22,
           },
-          inputData: "v-binding data",
-          type: "number" /* it only permit number */,
-          link: "https://www.youtube.com/",
         },
         methods: {
-          getKossieCoderLink(channel) {
-            return this.link + channel;
-          },
           nextYear(greeting) {
             return (
               greeting +
