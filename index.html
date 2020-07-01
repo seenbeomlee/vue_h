@@ -8,9 +8,10 @@
   </head>
   <body>
     <div id="app">
-      {{ year }} <br />
-      <button v-on:click="plus">Add</button>
-      <button v-on:click="minus">Sub</button>
+      <form v-on:submit.prevent="submit">
+        <input type="text" /><br />
+        <button type="submit">Submit</button>
+      </form>
     </div>
     <script>
       new Vue({
@@ -24,6 +25,10 @@
           },
           minus() {
             this.year--;
+          },
+          submit() {
+            alert("submitted");
+            console.log("hello");
           },
         },
       });
