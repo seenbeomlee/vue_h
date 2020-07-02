@@ -8,23 +8,31 @@
   </head>
   <body>
     <div id="app">
-      <button @click="changeMessage">Click</button>
-      {{ reversedMessage }} {{ reversedMessage }} {{ reversedMessage }}
+      {{ message }}<br />
+      <button @click="changeMessage">Click</button><br />
+      {{ updated }}
     </div>
     <script>
       new Vue({
         el: "#app",
         data: {
           message: "hello",
+          updated: "NoNO",
         },
         methods: {
           changeMessage() {
-            this.message = "math";
+            this.message = "bye";
           },
         },
         computed: {
           reversedMessage() {
             return this.message.split("").reverse().join("");
+          },
+        },
+        watch: {
+          message(newVal, oldVal) {
+            console.log(newVal, oldVal);
+            this.updated = "yesYes";
           },
         },
       });
