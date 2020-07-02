@@ -4,35 +4,33 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>vue_elementary</title>
+    <style>
+      .red {
+        color: red;
+      }
+
+      .font-bold {
+        font-weight: bold;
+      }
+    </style>
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
   </head>
   <body>
     <div id="app">
-      {{ message }}<br />
-      <button @click="changeMessage">Click</button><br />
-      {{ updated }}
+      <div :class="{red: isRed, 'font-bold': isBold}">Hello</div>
+      <button @click="update">Click</button>
     </div>
     <script>
       new Vue({
         el: "#app",
         data: {
-          message: "hello",
-          updated: "NoNO",
+          isRed: false,
+          isBold: false,
         },
         methods: {
-          changeMessage() {
-            this.message = "bye";
-          },
-        },
-        computed: {
-          reversedMessage() {
-            return this.message.split("").reverse().join("");
-          },
-        },
-        watch: {
-          message(newVal, oldVal) {
-            console.log(newVal, oldVal);
-            this.updated = "yesYes";
+          update() {
+            this.isRed = !this.isRed;
+            this.isBold = !this.isBold;
           },
         },
       });
