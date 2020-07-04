@@ -6,7 +6,6 @@
     <hr />
     <TodoList />
     <UserList />
-    <!--     {{ todos }} -->
   </div>
 </template>
 

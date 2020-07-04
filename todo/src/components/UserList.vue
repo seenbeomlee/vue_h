@@ -8,17 +8,19 @@
 </template>
 
 <script>
-import axios from "axios";
 export default {
-  data() {
-    return {
-      users: [],
-    };
-  },
   created() {
-    axios.get("https://jsonplaceholder.typicode.com/users").then((res) => {
-      this.users = res.data;
-    });
+    this.getUsers();
+  },
+  computed: {
+    users() {
+      return this.$store.state.users;
+    },
+  },
+  methods: {
+    getUsers() {
+      this.$store.dispatch("getUsers");
+    },
   },
 };
 </script>

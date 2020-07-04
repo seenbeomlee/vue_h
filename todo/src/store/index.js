@@ -1,5 +1,6 @@
 import Vue from "vue";
 import Vuex from "vuex";
+import axios from "axios";
 
 Vue.use(Vuex);
 
@@ -17,8 +18,12 @@ export default new Vuex.Store({
         checked: false,
       },
     ],
+    Users: [],
   },
   mutations: {
+    SET_USERS(state, users) {
+      state.users = users;
+    },
     ADD_TODO(state, value) {
       state.todos.push({
         id: Math.random(),
@@ -37,6 +42,11 @@ export default new Vuex.Store({
     },
   },
   actions: {
+    getUsers({ commit }) {
+      axios.get("https://jsonplaceholder.typicode.com/users").then((res) => {
+        commit("SET_USERS", res.data);
+      });
+    },
     addTodo({ commit }, value) {
       setTimeout(function() {
         commit("ADD_TODO", value);
