@@ -17,14 +17,44 @@
   </head>
   <body>
     <div id="app">
-      {{ name }}
+      {{ name }} <br />
       <button @click="changeText">click</button>
+
+      <hr />
+
+      <kossie-button></kossie-button>
+      <hr />
+      <hr />
     </div>
     <div id="app-1">
       {{ name }} <br />
       <button @click="changeText">click</button>
+
+      <hr />
+
+      <kossie-button></kossie-button>
     </div>
     <script>
+      Vue.component("kossie-button", {
+        template: ` 
+        <div> 
+          {{ name }}<br />
+          <button @click="changeText">click</button>
+        </div>
+        `,
+        data() {
+          // when you make comoponent, you should make a function for data
+          return {
+            name: "kossie",
+          };
+        },
+        methods: {
+          changeText() {
+            this.name = "kossie updated"; /* it will change app1's name */
+          },
+        },
+      });
+
       const app = new Vue({
         el: "#app",
         data: {
@@ -32,7 +62,7 @@
         },
         methods: {
           changeText() {
-            app1.name = "kossie updated"; /* it will change app1's name */
+            this.name = "kossie updated"; /* it will change app1's name */
           },
         },
       });
@@ -40,11 +70,11 @@
       const app1 = new Vue({
         el: "#app-1",
         data: {
-          name: "kossie1",
+          name: "kossie",
         },
         methods: {
           changeText() {
-            this.name = "kossie1 updated";
+            this.name = "kossie updated";
           },
         },
       });
