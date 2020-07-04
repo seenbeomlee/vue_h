@@ -5,11 +5,11 @@
 <script>
 export default {
   computed: {
-    todos() {
+    /*     todos() {
       return this.$store.state.todos;
-    },
+    }, */
     numberOfCompletedTodo() {
-      return this.todos.filter((todo) => todo.checked).length;
+      return this.$store.getters.numberOfCompletedTodo;
     },
   },
 };
