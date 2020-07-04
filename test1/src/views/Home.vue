@@ -2,7 +2,7 @@
   <div>
     <form action>
       <h1>This is Home page</h1>
-      <InputField :name="name" @update-name="updateName" />
+      <InputField v-model="name" />
       <br />
       <button>Submit</button>
     </form>
