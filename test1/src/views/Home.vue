@@ -2,7 +2,7 @@
   <div>
     <h1>Kossie Coder</h1>
 
-    <seenblee />
+    <seenblee title="home title" name="seenblee name" />
   </div>
 </template>
 
