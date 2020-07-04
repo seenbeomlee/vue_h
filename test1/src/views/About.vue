@@ -1,7 +1,12 @@
 <template>
   <div class="about">
     <h1>This is an about page</h1>
-    <seenblee />
+    <seenblee>
+      <template #header>
+        <p>header11</p>
+      </template>
+      <template v-slot:default>hello!</template>
+    </seenblee>
   </div>
 </template>
 
