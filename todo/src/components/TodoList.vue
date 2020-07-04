@@ -14,13 +14,12 @@
 import Todo from "@/components/Todo.vue";
 export default {
   components: {
-    Todo
+    Todo,
   },
-  props: {
-    todos: {
-      type: Array,
-      required: true
-    }
+  computed: {
+    todos() {
+      return this.$store.state.todos;
+    },
   },
   methods: {
     toggleCheckbox(value) {
@@ -28,10 +27,9 @@ export default {
     },
     deleteTodo(todoId) {
       this.$emit("click-delete", todoId);
-    }
-  }
+    },
+  },
 };
 </script>
 
-<style>
-</style>
+<style></style>
