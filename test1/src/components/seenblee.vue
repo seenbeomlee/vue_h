@@ -1,7 +1,7 @@
 <template>
   <div>
     <p>header</p>
-    <slot name="header"></slot>
+    <slot name="header" :seenblee="seenblee"></slot>
     <p>body</p>
     <slot></slot>
     <p>footer</p>
@@ -13,7 +13,6 @@ export default {
   props: {
     title: {
       type: String,
-      //required: false /* props is optional == false, mendatory == true */
       default: "default title"
     },
     name: {
@@ -24,15 +23,11 @@ export default {
 
   data() {
     return {
-      //name: "seenblee"
+      seenblee: "coder"
     };
   },
 
-  methods: {
-    /*     updateName() {
-      this.name = "seenblee updated";
-    } */
-  }
+  methods: {}
 };
 </script>
 

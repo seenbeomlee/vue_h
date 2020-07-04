@@ -2,8 +2,8 @@
   <div class="about">
     <h1>This is an about page</h1>
     <seenblee>
-      <template #header>
-        <p>header11</p>
+      <template #header="tt">
+        <p>header11 {{ tt.seenblee }}</p>
       </template>
       <template v-slot:default>hello!</template>
     </seenblee>
