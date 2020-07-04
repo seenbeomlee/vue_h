@@ -1,5 +1,5 @@
 <template>
-  <div>Completed Todo: {{ numberOfCompletedTodo }} {{ todos }}</div>
+  <div>Completed Todo: {{ numberOfCompletedTodo }}</div>
 </template>
 
 <script>
