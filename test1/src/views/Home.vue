@@ -1,11 +1,9 @@
 <template>
   <div>
-    <form action>
-      <h1>This is Home page</h1>
-      <InputField v-model="name" />
-      <br />
-      <button>Submit</button>
-    </form>
+    <h1>This is Home page</h1>
+    <InputField v-model="name" />
+    <br />
+    <button @click="updateName">Submit</button>
     {{ name }}
   </div>
 </template>
@@ -18,12 +16,47 @@ export default {
   },
   data() {
     return {
-      name: ""
+      name: "seenblee"
     };
   },
+
+  beforeCreate() {
+    console.log("beforeCreate", this.name);
+  },
+
+  created() {
+    console.log("created", this.name);
+  },
+
+  beforeMount() {
+    alert("beforeMount");
+    /* if you refresh the browser */
+  },
+
+  mounted() {
+    alert("Mount");
+    /* control DOM, it shows display */
+  },
+
+  beforeUpdate() {
+    alert("beforeUpdate");
+  },
+
+  updated() {
+    alert("updated");
+    /* if you clicked the button, update is being progressed and display an alert */
+  },
+  beforeDestroy() {
+    alert("beforeDestroy");
+    /* why it does not work?! == nope, i just wrote it 'beforeDestoy' :D */
+  },
+  destroyed() {
+    alert("destroyed");
+    /* if you change the view-router to About */
+  },
   methods: {
-    updateName(name) {
-      this.name = name;
+    updateName() {
+      this.name = "hello update";
     }
   }
 };
