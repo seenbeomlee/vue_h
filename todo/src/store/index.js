@@ -36,6 +36,22 @@ export default new Vuex.Store({
       state.todos = state.todos.filter((todo) => todo.id !== todoId);
     },
   },
-  actions: {},
+  actions: {
+    addTodo({ commit }, value) {
+      setTimeout(function() {
+        commit("ADD_TODO", value);
+      }, 500);
+    },
+    toggleTodo({ commit }, payload) {
+      setTimeout(function() {
+        commit("TOGGLE_TODO", payload);
+      }, 500);
+    },
+    deleteTodo({ commit }, todoId) {
+      setTimeout(function() {
+        commit("DELETE_TODO", todoId);
+      }, 500);
+    },
+  },
   getters: {},
 });
