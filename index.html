@@ -17,70 +17,57 @@
   </head>
   <body>
     <div id="app">
-      <!--  {{ name }} <br />
-      <button @click="changeText">click</button>
-
-      <hr />
- -->
       <kossie-button></kossie-button>
       <hr />
       <hr />
     </div>
+
     <div id="app-1">
-      <!--  {{ name }} <br />
-      <button @click="changeText">click</button>
-
-      <hr /> -->
-
       <kossie-button></kossie-button>
     </div>
+
     <script>
-      Vue.component("hello-world", {
+      /*       Vue.component("hello-world", {
         template: `<div>hello world</div>`,
-      });
-      Vue.component("kossie-button", {
+      }); */
+      const HelloWorld = {
+        template: `<div>hello world</div>`,
+      };
+
+      const KossieButton = {
+        components: {
+          "hello-world": HelloWorld,
+        },
         template: `
               <div>
                 {{ name }}<br />
                 <hello-world></hello-world>
                 <button @click="changeText">click</button>
               </div>
-              ` /* component in component 'hello-world' */,
+              `,
         data() {
-          // when you make comoponent, you should make a function for data
           return {
             name: "kossie",
           };
         },
         methods: {
           changeText() {
-            this.name = "kossie updated"; /* it will change app1's name */
+            this.name = "kossie updated";
           },
         },
-      });
+      };
 
       const app = new Vue({
         el: "#app",
-        /*    data: {
-                name: "kossie",
-              },
-              methods: {
-                changeText() {
-                  this.name = "kossie updated";
-                },
-              },  */
+        components: {
+          /* local components */
+
+          "kossie-button": KossieButton,
+        },
       });
 
       const app1 = new Vue({
         el: "#app-1",
-        /*         data: {
-                name: "kossie",
-              },
-              methods: {
-                changeText() {
-                  this.name = "kossie updated";
-                },
-              }, */
       });
     </script>
   </body>
