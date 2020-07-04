@@ -3,9 +3,10 @@
     <div>
       <input type="checkbox" :checked="todo.checked" @change="toggleCheckbox" />
     </div>
+
     <span
       class="ml-2 flex-grow-1"
-      :class="todo.checked ? 'text-muted': ''"
+      :class="todo.checked ? 'text-muted' : ''"
       :style="todo.checked ? 'text-decoration: line-through': ''"
     >{{ todo.text }}</span>
     <button class="btn btn-danger btn-sm" @click="clickDelete">Delete</button>
@@ -34,4 +35,5 @@ export default {
 };
 </script>
 
-<style></style>
+<style>
+</style>
