@@ -1,23 +1,30 @@
 <template>
   <div>
-    <h1>Kossie Coder</h1>
-
-    <seenblee title="home title" name="seenblee name" />
+    <form action>
+      <h1>This is Home page</h1>
+      <InputField :name="name" @update-name="updateName" />
+      <br />
+      <button>Submit</button>
+    </form>
+    {{ name }}
   </div>
 </template>
 
 <script>
-import seenblee from "@/components/seenblee.vue"; /* @ means src folder */
-
+import InputField from "@/components/InputField.vue";
 export default {
   components: {
-    seenblee
+    InputField
   },
-
   data() {
     return {
-      name: "Kossie Coder"
+      name: ""
     };
+  },
+  methods: {
+    updateName(name) {
+      this.name = name;
+    }
   }
 };
 </script>
