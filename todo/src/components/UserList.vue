@@ -14,19 +14,14 @@ export default {
     this.getUsers();
   },
   computed: {
-    ...mapState({ people: "users" }),
-    /*     users() {
-      return this.$store.state.users;
-    },
-    todos() {
-      return this.$store.state.todos;
-    }, */
+    // using object
+    ...mapState("user", {
+      users: (state) => state.users,
+    }),
   },
   methods: {
-    ...mapActions(["getUsers"]),
-    /*     getUsers() {
-      this.$store.dispatch("getUsers");
-    }, */
+    // using array
+    ...mapActions("user", ["getUsers"]),
   },
 };
 </script>
