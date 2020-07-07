@@ -21,11 +21,13 @@ export default {
   },
 
   beforeCreate() {
-    console.log("beforeCreate", this.name);
+    /* console.log("beforeCreate", this.name); */
+    alert("beforeCreate");
   },
 
   created() {
-    console.log("created", this.name);
+    /* console.log("created", this.name); */
+    alert("Created");
   },
 
   beforeMount() {
