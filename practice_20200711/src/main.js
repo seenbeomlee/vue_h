@@ -5,7 +5,6 @@ import store from './store'
 import vuetify from './plugins/vuetify';
 import StatusComponent from './Status.vue'
 
-
 Vue.component('AppStatus', StatusComponent)
 
 Vue.config.productionTip = false
