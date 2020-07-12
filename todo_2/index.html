@@ -6,49 +6,40 @@
     <title>Document</title>
   </head>
   <style>
-    .dropdown ul {
-      display: none;
-      list-style: none;
-      margin: 0;
-      border: 1px solid black;
-      padding: 10px;
-      width: 200px;
-    }
 
-    .dropdown.on ul {
-      display: block;
-    }
   </style>
   <body>
       <div id="app">
-        <!-- <img :id="`thumbnail_${id}`" :src="image"> --> <!-- src 값에 data-image 값을 자동적으로 넣는다! -> v-bind: -->
-        <div :class="[dropdown, toggle]" :style="[style, fontStyle]">
-          <ul>
-            <li><a hred="#">메뉴1</a></li>
-            <li><a href="#">메뉴2</a></li>
-          </ul>
-        </div>
+        <button type="button" @click="add">add</button>
+        {{ counter }}
+
+        <input type="text" @keyup="keyUp"></input>
       </div>
       <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
       <script>
+        class testClass {
+          test() {
+
+          }
+        }
+
         let app = new Vue({
           el: '#app',
           data() {
             return {
-              id: 1,
-              image: 'https://picsum.photos/200/200/?image=353',
-              style: {
-                background: 'red',
-                color: 'white',
-              },
-              fontStyle: {
-                'font-size': '15',
-                fontFamily : 'dotum',
-              },
-              dropdown: 'dropdown',
-              toggle: {
-                on: false
+              counter: 0,
+            }
+          },
+          methods: { /* methods에서는 arrow function을 쓰면, this를 binding하지 않기 때문에, 사용하면 안된다! */
+            add() {
+              this.counter ++;
+            },
+            keyUp(e) {
+              if(e.keyCode !== 13) {
+                console.log('not')
+                return;
               }
+              console.log('yes')
             }
           }
         })
