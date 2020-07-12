@@ -10,33 +10,41 @@
   </style>
   <body>
       <div id="app">
-        <button type="button" @click="add">add</button>
-        {{ counter }}
-
-        <input type="text" @keyup.enter="keyUp"></input>
+        <!-- <img :id="`thumbnail_${id}`" :src="image"> --> <!-- src 값에 data-image 값을 자동적으로 넣는다! -> v-bind: -->
+        <button type="button" @click="btnClick">button</button>
+        <div :class="[dropdown, toggle]" :style="[style, fontStyle]">
+          <ul>
+            <li><a hred="#">메뉴1</a></li>
+            <li><a href="#">메뉴2</a></li>
+          </ul>
+        </div>
       </div>
       <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
       <script>
-        class testClass {
-          test() {
-
-          }
-        }
-
         let app = new Vue({
           el: '#app',
           data() {
             return {
-              counter: 0,
+              id: 1,
+              image: 'https://picsum.photos/200/200/?image=353',
+              style: {
+                background: 'red',
+                color: 'white',
+              },
+              fontStyle: {
+                'font-size': '15',
+                fontFamily : 'dotum',
+              },
+              dropdown: 'dropdown',
+              toggle: {
+                on: false
+              }
             }
           },
-          methods: { /* methods에서는 arrow function을 쓰면, this를 binding하지 않기 때문에, 사용하면 안된다! */
-            add() {
-              this.counter ++;
+          methods: {
+            btnClick() {
+              this.toggle.on = !this.toggle.on
             },
-            keyUp(e) {
-              console.log('yes')
-            }
           }
         })
       </script>
