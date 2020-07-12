@@ -7,7 +7,10 @@
   </head>
   <body>
       <div id="app">
-        <img :id="`thumbnail_${id}`" :src="image"> <!-- src 값에 data-image 값을 자동적으로 넣는다! -> v-bind: -->
+        <!-- <img :id="`thumbnail_${id}`" :src="image"> --> <!-- src 값에 data-image 값을 자동적으로 넣는다! -> v-bind: -->
+        <div :style="style">
+          for test div
+        </div>
       </div>
       <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
       <script>
@@ -16,7 +19,13 @@
           data() {
             return {
               id: 1,
-              image: 'https://picsum.photos/200/200/?image=353'
+              image: 'https://picsum.photos/200/200/?image=353',
+              style: {
+                background: 'red',
+                color: 'white',
+                'font-size': '15',
+                fontFamily : ,
+              }
             }
           }
         })
