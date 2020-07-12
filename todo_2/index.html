@@ -5,11 +5,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
   </head>
+  <style>
+    .dropdown ul {
+      display: none;
+      list-style: none;
+      margin: 0;
+      border: 1px solid black;
+      padding: 10px;
+      width: 200px;
+    }
+
+    .dropdown.on ul {
+      display: block;
+    }
+  </style>
   <body>
       <div id="app">
         <!-- <img :id="`thumbnail_${id}`" :src="image"> --> <!-- src 값에 data-image 값을 자동적으로 넣는다! -> v-bind: -->
-        <div :style="style">
-          for test div
+        <div :class="[dropdown, toggle]" :style="[style, fontStyle]">
+          <ul>
+            <li><a hred="#">메뉴1</a></li>
+            <li><a href="#">메뉴2</a></li>
+          </ul>
         </div>
       </div>
       <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
@@ -23,8 +40,14 @@
               style: {
                 background: 'red',
                 color: 'white',
+              },
+              fontStyle: {
                 'font-size': '15',
-                fontFamily : ,
+                fontFamily : 'dotum',
+              },
+              dropdown: 'dropdown',
+              toggle: {
+                on: false
               }
             }
           }
